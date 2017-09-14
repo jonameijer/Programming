@@ -6,7 +6,7 @@ def standaardtarief(afstandKM):
     if afstandKM < 0:
         output = 0
     return output
-
+#Hier wordt de prijs berekend, waarbij negatieve afstand niets kost, en waarbij een rijs van meer dan 50km 15 euro kost plus 60 cent per km
 
 def ritprijs(leeftijd,weekendrit,afstandKM):
     if weekendrit == 'ja':
@@ -20,7 +20,7 @@ def ritprijs(leeftijd,weekendrit,afstandKM):
         else:
             output = (standaardtarief(afstandKM))
     return output
-
+#Hier word de korting op de prijs berekend, waarbij er op leeftijd en op weekendprijs word gecheckt
 
 a = eval(input('Hoe oud bent u: '))
 b = input('Is het weekend? (ja, nee): ')
