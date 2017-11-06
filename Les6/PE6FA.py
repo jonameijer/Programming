@@ -18,22 +18,15 @@ def nieuwe_kluizen():
     'This function checks for empty vaults and gives user the option to pick an empty vault'
     kluisnummers = [1,2,3,4,5,6,7,8,9,10,11,12]
     kluizen = infiler.readlines()
-    open_kluizen = []
-    open_kluisnummers = []
     for line in kluizen:
         (nummer, wachtwoord) = line.split(';')
-        open_kluisnummers.append(nummer)
-    #'This checks for the integers of the used vaults'
-    for line in open_kluisnummers:
-        open_kluizen.append(int(line.replace('\n','')))
-    lege_kluizen = [x for x in kluisnummers if x not in open_kluizen]
+        kluisnummers.remove(int(nummer))
     #'This removes the vaults in use from the unused vaults'
-    print('Dit zijn de lege kluizen: ',lege_kluizen)
+    print('Dit zijn de lege kluizen: ',kluisnummers)
     kluiskeuze = eval(input('Welke kluis wil je: '))
-    if kluiskeuze not in lege_kluizen:
-        print('Dit is niet mogelijk')
     #'This checks if the entered vaultnumber is available'
-    while kluiskeuze not in lege_kluizen:
+    while kluiskeuze not in kluisnummers:
+        print('Dit is niet mogelijk')
         kluiskeuze = eval(input('Welke kluis wil je: '))
     infilea.write(str(kluiskeuze))
     infilea.write(';')
@@ -66,7 +59,7 @@ def kluis_teruggeven():
         for line in kluizen:
             if line != kluisstring:
                 infilew.write(line)
-                infilew.write('\n')
+    infilew.write('\n')
     #'This writes down all the old strings exept for the string that was returned'
     infilew.close()
     print('Wachtwoord verwijdert.')
