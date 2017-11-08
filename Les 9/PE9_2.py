@@ -16,3 +16,4 @@ list = date,';',voorl,';',naam,';',gbdatum,';',email
 string = ''.join(list)
 
 print(string)
+
